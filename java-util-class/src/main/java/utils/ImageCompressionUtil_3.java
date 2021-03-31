@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class ImageZip {
+public class ImageCompressionUtil_3 {
     private File file = null; // 文件对象
     private String inputDir; // 输入图路径
     private String outputDir; // 输出图路径
@@ -21,7 +21,7 @@ public class ImageZip {
     private int outputHeight = 2000; // 默认输出图片高
     private boolean proportion = true; // 是否等比缩放标记(默认为等比缩放)
 
-    public ImageZip() { // 初始化变量
+    public ImageCompressionUtil_3() { // 初始化变量
         inputDir = "";
         outputDir = "";
         inputFileName = "";
@@ -146,7 +146,7 @@ public class ImageZip {
     // main测试
     // compressPic(大图片路径,生成小图片路径,大图片文件名,生成小图片文名,生成小图片宽度,生成小图片高度,是否等比缩放(默认为true))
     public static void main(String[] args) {
-        ImageZip mypic = new ImageZip();
+        ImageCompressionUtil_3 mypic = new ImageCompressionUtil_3();
         System.out.println("输入的图片大小：" + mypic.getPicSize("e:\\P50202-105817.jpg") / 1024 + "KB");
         mypic.compressPic("e:\\", "e:\\", "P50202-105817.jpg", "aP50202-105817.jpg", 100, 100, false);
         mypic.compressPic("e:\\", "e:\\", "P50202-105817.jpg", "bP50202-105817.jpg", 2000, 2000, true);
