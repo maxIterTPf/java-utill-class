@@ -1,5 +1,7 @@
 package utils;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -12,14 +14,10 @@ import java.io.OutputStream;
  */
 public class FileDownloadUtil {
 
-    public static void downloadZip(HttpServletResponse response, byte[] content) throws IOException {
+    public static void downloadZip(HttpServletResponse response, @NotNull byte[] content) throws IOException {
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
         response.setDateHeader("Expires", 0);
-        if (null == content) {
-//            throw ApiBuildingBizException.BUILDING_NOT_MAP_ERROR;
-            return;
-        }
         response.setContentLength(content.length);
         response.setContentType("application/octet-stream");
         InputStream is = null;
